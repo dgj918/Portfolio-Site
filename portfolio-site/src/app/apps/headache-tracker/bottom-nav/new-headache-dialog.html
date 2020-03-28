@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>Headache Entry</h1>
+<div mat-dialog-content>
+  <p>Enter a new Headache</p>
+  <form [formGroup]="headacheForm">
+    <mat-form-field>
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker touchUi></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Intensity</mat-label>
+      <input matInput formControlName="Intensity">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Trigger</mat-label>
+      <input matInput formControlName="Trigger">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Medicine</mat-label>
+      <input matInput formControlName="Medicine">
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+</div>

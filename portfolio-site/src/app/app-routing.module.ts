@@ -6,7 +6,8 @@ import { HeadacheTrackerComponent } from './apps/headache-tracker/headache-track
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
-  { path: 'headache-tracker', component: HeadacheTrackerComponent}
+  { path: 'home', component: HomeComponent},
+  { path: 'headache', component: HeadacheTrackerComponent}
 ];
 
 @NgModule({

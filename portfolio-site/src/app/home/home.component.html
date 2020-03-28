@@ -1,1 +1,4 @@
-<p>home works!</p>
+<button color="primary" mat-button [matMenuTriggerFor]="menu">Apps</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item><a routerLink="headache" style="text-decoration: none; color: black;">Headache Tracker</a></button>
+</mat-menu>

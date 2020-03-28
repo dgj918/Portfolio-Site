@@ -1,23 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 
 export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  intensity: number;
+  date: string;
+  trigger: string;
+  medicine: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+  {date: 'Jan 1', intensity: 6, trigger: 'Call', medicine: 'IB Profin'},
+  {date: 'Jan 2', intensity: 7, trigger: 'Wine', medicine: 'IB Profin'},
+  {date: 'Jan 3', intensity: 4, trigger: 'Call', medicine: 'IB Profin'},
+  {date: 'Jan 4', intensity: 3, trigger: 'Night Shift', medicine: 'IB Profin'},
+  {date: 'Jan 5', intensity: 5, trigger: 'Workout', medicine: 'IB Profin'},
+  {date: 'Jan 6', intensity: 6, trigger: 'Call', medicine: 'IB Profin'},
+  {date: 'Jan 7', intensity: 8, trigger: 'Night Shift', medicine: 'IB Profin'},
+  {date: 'Jan 8', intensity: 3, trigger: 'Wine', medicine: 'IB Profin'},
+  {date: 'Jan 9', intensity: 2, trigger: 'Call', medicine: 'IB Profin'},
+  {date: 'Jan 10', intensity: 5, trigger: 'Call', medicine: 'IB Profin'},
+  {date: 'Jan 11', intensity: 5, trigger: 'Call', medicine: 'IB Profin'},
+  {date: 'Jan 12', intensity: 5, trigger: 'Call', medicine: 'IB Profin'},
+  {date: 'Jan 13', intensity: 5, trigger: 'Call', medicine: 'IB Profin'},
+  {date: 'Jan 14', intensity: 5, trigger: 'Call', medicine: 'IB Profin'},
 ];
 @Component({
   selector: 'app-headache-tracker',
@@ -25,7 +29,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./headache-tracker.component.scss']
 })
 export class HeadacheTrackerComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['date', 'intensity', 'trigger', 'medicine'];
   dataSource = ELEMENT_DATA;
   
   constructor() { }
