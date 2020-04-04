@@ -59,14 +59,21 @@ export class HeadacheTrackerComponent implements OnInit {
   }
 
   updateTableData($event){
-    console.log($event)
     this.headacheSev.getHeadaches()
     .pipe(
       map(val => {
-        val['date_and_time'] = val['date_and_time'].replace(/\s/g, "T")
+        let valArr: any = val
+        return valArr.map(element =>{
+          element['date_and_time'] = element['date_and_time'].replace(/\s/g, "T")
+          element['intensity'] = element['intensity']
+          element['headache_trigger'] = element['headache_trigger']
+          element['medicine'] = element['medicine']
+          return element
+        }) 
       })
     )
     .subscribe((data) => {
+      console.log(data)
       let headacheData: any = data
       this.dataSource = headacheData
     })
