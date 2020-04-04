@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HeadachesService } from './services/headaches.service';
 import { DataSource } from '@angular/cdk/table';
+import { map } from 'rxjs/operators';
 
 export interface HeadacheType {
   intensity: number;
@@ -37,7 +38,21 @@ export class HeadacheTrackerComponent implements OnInit {
   constructor(private headacheSev: HeadachesService) { }
 
   ngOnInit() {
-    this.headacheSev.getHeadaches().subscribe((data) => {
+    this.headacheSev.getHeadaches()
+    .pipe(
+      map(val => {
+        let valArr: any = val
+        return valArr.map(element =>{
+          element['date_and_time'] = element['date_and_time'].replace(/\s/g, "T")
+          element['intensity'] = element['intensity']
+          element['headache_trigger'] = element['headache_trigger']
+          element['medicine'] = element['medicine']
+          return element
+        }) 
+      })
+    )
+    .subscribe((data) => {
+      console.log(data)
       let headacheData: any = data
       this.dataSource = headacheData
     })
@@ -45,7 +60,13 @@ export class HeadacheTrackerComponent implements OnInit {
 
   updateTableData($event){
     console.log($event)
-    this.headacheSev.getHeadaches().subscribe((data) => {
+    this.headacheSev.getHeadaches()
+    .pipe(
+      map(val => {
+        val['date_and_time'] = val['date_and_time'].replace(/\s/g, "T")
+      })
+    )
+    .subscribe((data) => {
       let headacheData: any = data
       this.dataSource = headacheData
     })
