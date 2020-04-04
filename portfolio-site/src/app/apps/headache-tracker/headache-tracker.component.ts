@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { HeadachesService } from './services/headaches.service';
+import { DataSource } from '@angular/cdk/table';
 
-export interface PeriodicElement {
+export interface HeadacheType {
   intensity: number;
   date: string;
   trigger: string;
   medicine: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
+const ELEMENT_DATA: HeadacheType[] = [
   {date: 'Jan 1', intensity: 6, trigger: 'Call', medicine: 'IB Profin'},
   {date: 'Jan 2', intensity: 7, trigger: 'Wine', medicine: 'IB Profin'},
   {date: 'Jan 3', intensity: 4, trigger: 'Call', medicine: 'IB Profin'},
@@ -29,12 +31,24 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./headache-tracker.component.scss']
 })
 export class HeadacheTrackerComponent implements OnInit {
-  displayedColumns: string[] = ['date', 'intensity', 'trigger', 'medicine'];
-  dataSource = ELEMENT_DATA;
+  displayedColumns: string[] = ['date_and_time', 'intensity', 'headache_trigger', 'medicine'];
+  dataSource: DataSource<HeadacheType>;
   
-  constructor() { }
+  constructor(private headacheSev: HeadachesService) { }
 
   ngOnInit() {
+    this.headacheSev.getHeadaches().subscribe((data) => {
+      let headacheData: any = data
+      this.dataSource = headacheData
+    })
+  }
+
+  updateTableData($event){
+    console.log($event)
+    this.headacheSev.getHeadaches().subscribe((data) => {
+      let headacheData: any = data
+      this.dataSource = headacheData
+    })
   }
 
 }
