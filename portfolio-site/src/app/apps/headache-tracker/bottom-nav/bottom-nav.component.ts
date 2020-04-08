@@ -4,8 +4,12 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { HeadachesService } from '../services/headaches.service';
 
 export interface DialogData {
-  animal: string;
-  name: string;
+  recordID: string;
+  date_and_time: string;
+  intensity: number;
+  headache_trigger: string;
+  medicine: string;
+
 }
 
 @Component({
@@ -21,9 +25,13 @@ export class BottomNavComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openNewHeadacheDialog(): void {
+  openNewHeadacheDialog(headacheData): void {
+    headacheData ? headacheData : null
+    console.log(headacheData)
+
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-      width: '250px',
+      width: '350px',
+      data: headacheData
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -34,6 +42,7 @@ export class BottomNavComponent implements OnInit {
 }
 
 export interface headache {
+  recordID: string,
   HeadAche_Date: string,
   Intensity: number, 
   Trigger: string,
@@ -50,22 +59,42 @@ export class DialogOverviewExampleDialog {
 
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    @Inject(MAT_DIALOG_DATA) public headacheData: DialogData,
     private fb: FormBuilder,
     private headacheServ: HeadachesService) {
-      this.headacheForm = this.fb.group({
-        HA_Date: '',
-        Intensity: 0, 
-        Trigger: '',
-        Medicine: ''
-      })
+      if (this.headacheData == null) {
+        this.headacheForm = this.fb.group({
+          HA_Date: '',
+          Intensity: 0, 
+          Trigger: '',
+          Medicine: ''
+        })
 
-    this.headacheFormData = {
-      HeadAche_Date: '',
-      Intensity: 0,
-      Trigger: '',
-      Medicine: ''
-    }
+        this.headacheFormData = {
+          recordID: null,
+          HeadAche_Date: '',
+          Intensity: 0,
+          Trigger: '',
+          Medicine: ''
+        }
+      } else {
+        this.headacheForm = this.fb.group({
+          HA_Date: this.headacheData.date_and_time,
+          Intensity: this.headacheData.intensity, 
+          Trigger: this.headacheData.headache_trigger,
+          Medicine: this.headacheData.medicine
+        })
+
+        this.headacheFormData = {
+          recordID: this.headacheData.recordID,
+          HeadAche_Date: this.headacheData.date_and_time,
+          Intensity: this.headacheData.intensity,
+          Trigger: this.headacheData.headache_trigger,
+          Medicine: this.headacheData.medicine
+        }
+      }
+
+    
 
     this.headacheForm.valueChanges.subscribe((formValues) =>{
       this.headacheFormData.HeadAche_Date = formValues.HA_Date
@@ -80,7 +109,19 @@ export class DialogOverviewExampleDialog {
   }
 
   saveData(){
-    this.headacheServ.postHeadache(this.headacheFormData).subscribe((data) => {
+    if (!this.headacheFormData.recordID){ 
+      this.headacheServ.logHeadache(this.headacheFormData).subscribe((data) => {
+        this.dialogRef.close()
+      })
+    } else {
+      this.headacheServ.updateHeadache(this.headacheData.recordID, this.headacheFormData).subscribe((data) => {
+        this.dialogRef.close()
+      })
+    }
+  }
+
+  deleteData(){
+    this.headacheServ.deleteData(this.headacheData.recordID).subscribe((Data) =>{
       this.dialogRef.close()
     })
   }

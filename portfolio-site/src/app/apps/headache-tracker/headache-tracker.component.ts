@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HeadachesService } from './services/headaches.service';
 import { DataSource } from '@angular/cdk/table';
 import { map } from 'rxjs/operators';
@@ -27,6 +27,7 @@ export class HeadacheTrackerComponent implements OnInit {
       map(val => {
         let valArr: any = val
         return valArr.map(element =>{
+          element['recordID'] = element['recordID']
           element['date_and_time'] = element['date_and_time'].replace(/\s/g, "T")
           element['intensity'] = element['intensity']
           element['headache_trigger'] = element['headache_trigger']
@@ -47,6 +48,7 @@ export class HeadacheTrackerComponent implements OnInit {
       map(val => {
         let valArr: any = val
         return valArr.map(element =>{
+          element['recordID'] = element['recordID']
           element['date_and_time'] = element['date_and_time'].replace(/\s/g, "T")
           element['intensity'] = element['intensity']
           element['headache_trigger'] = element['headache_trigger']

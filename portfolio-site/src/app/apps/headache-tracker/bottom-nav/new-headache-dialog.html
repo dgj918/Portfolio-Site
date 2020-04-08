@@ -23,6 +23,7 @@
   </form>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button (click)="saveData()">Save</button>
+  <button color="primary" mat-raised-button (click)="saveData()">Save</button>
+  <button mat-raised-button (click)="onNoClick()">Cancel</button>
+  <button color="warn" mat-raised-button (click)="deleteData()">Delete</button>
 </div>
