@@ -21,6 +21,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
+import { ChartsModule } from 'ng2-charts';
+import { IntensityByDateComponent } from './apps/headache-tracker/intensity-by-date/intensity-by-date.component';
+import { IntensityByDateChartComponent } from './apps/headache-tracker/intensity-by-date/intensity-by-date-chart/intensity-by-date-chart.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,9 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     NavComponent,
     BottomNavComponent,
-    DialogOverviewExampleDialog 
+    DialogOverviewExampleDialog,
+    IntensityByDateComponent,
+    IntensityByDateChartComponent 
   ],
   imports: [
     BrowserModule,
@@ -48,7 +53,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartsModule
   ],
   entryComponents: [
     DialogOverviewExampleDialog

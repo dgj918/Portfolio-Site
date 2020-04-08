@@ -2,6 +2,7 @@ import { Component, OnInit, Inject, EventEmitter, Output } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { HeadachesService } from '../services/headaches.service';
+import { Router } from '@angular/router';
 
 export interface DialogData {
   recordID: string;
@@ -20,7 +21,7 @@ export interface DialogData {
 export class BottomNavComponent implements OnInit {
   @Output() headacheFormClosed = new EventEmitter
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -37,6 +38,17 @@ export class BottomNavComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.headacheFormClosed.emit()
     });
+  }
+
+  navToHeadacheTracker(){
+    console.log("head chart")
+
+    this.router.navigate(['/headache'])
+  }
+
+  navToIntensityChart(){
+    console.log("int chart")
+    this.router.navigate[('/intensity-chart')]
   }
 
 }
