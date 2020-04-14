@@ -24,6 +24,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts';
 import { IntensityByDateComponent } from './apps/headache-tracker/intensity-by-date/intensity-by-date.component';
 import { IntensityByDateChartComponent } from './apps/headache-tracker/intensity-by-date/intensity-by-date-chart/intensity-by-date-chart.component';
+import { CoronaVirusTrackerComponent } from './apps/corona-virus-tracker/corona-virus-tracker.component';
+import { Covid19BottomNavComponent } from './apps/corona-virus-tracker/covid19-bottom-nav/covid19-bottom-nav.component';
+import { Covid19TableComponent } from './apps/corona-virus-tracker/covid19-table/covid19-table.component';
+import { MatSortModule } from '@angular/material/sort';
+import { Covid19ChartComponent } from './apps/corona-virus-tracker/covid19-chart/covid19-chart.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +39,11 @@ import { IntensityByDateChartComponent } from './apps/headache-tracker/intensity
     BottomNavComponent,
     DialogOverviewExampleDialog,
     IntensityByDateComponent,
-    IntensityByDateChartComponent 
+    IntensityByDateChartComponent,
+    CoronaVirusTrackerComponent,
+    Covid19BottomNavComponent,
+    Covid19TableComponent,
+    Covid19ChartComponent 
   ],
   imports: [
     BrowserModule,
@@ -54,7 +63,8 @@ import { IntensityByDateChartComponent } from './apps/headache-tracker/intensity
     MatDatepickerModule,
     MatNativeDateModule,
     HttpClientModule,
-    ChartsModule
+    ChartsModule,
+    MatSortModule
   ],
   entryComponents: [
     DialogOverviewExampleDialog

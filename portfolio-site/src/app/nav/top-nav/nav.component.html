@@ -1,8 +1,8 @@
 <mat-toolbar color="primary">
     <span>Headache Tracker</span>
     <button color="primary" mat-button [matMenuTriggerFor]="menu" class="appMenuBut">Applications</button>
-        <mat-menu #menu="matMenu">
-        <button routerLink="/headache-tracker" mat-menu-item>Headache Tracker</button>
+    <mat-menu #menu="matMenu">
+        <button routerLink="/headache-tracker" mat-menu-item> Tracker</button>
     </mat-menu>
     <span class="example-spacer"></span>
     <mat-icon (click)="navToHome()"class="example-icon" aria-hidden="false" aria-label="Example heart icon">home</mat-icon>
