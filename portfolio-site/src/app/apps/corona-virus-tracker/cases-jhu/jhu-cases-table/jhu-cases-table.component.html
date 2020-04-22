@@ -1,0 +1,133 @@
+<form [formGroup]="locationSelectForm" fxLayout="row wrap" fxLayoutAlign="space-evenly center">
+    <mat-form-field>
+        <mat-label>Country</mat-label>
+        <mat-select formControlName="country">
+            <mat-option value="US">US</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>State</mat-label>
+        <mat-select formControlName="state" (onChange)="getCounties()">
+            <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>County</mat-label>
+        <mat-select formControlName="county">
+            <mat-option *ngFor="let county of counties" [value]=county>{{county}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</form>
+
+<h3 fxLayoutAlign="center center">Cases Score Card: {{currentSelectedLocation.county}} County, {{currentSelectedLocation.state}}</h3>
+<div fxLayout="row wrap" 
+    fxLayout.lt-sm="column" 
+    fxLayoutGap="32px" 
+    fxLayoutAlign="flex-center start"
+    fxLayoutAlign.lt-sm="flex-center center"
+    class="jhu-cases">
+    <div>
+        <mat-card class="example-card flex-item">
+            <mat-card-header>
+                <mat-card-title>Daily Score Card</mat-card-title>
+                <mat-card-subtitle>{{currentSelectedLocation.county}} County, {{currentSelectedLocation.state}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <div fxLayout="column">
+                    <div fxLayout="row" fxLayoutAlign="space-evenly center" >
+                        <div fxLayout="column" fxLayoutAlign="space-evenly center" >
+                            <h4>Today's Cases</h4>
+                            <p>{{currentCaseData.currentData.confirmed}}</p>
+                        </div>
+                        <div fxLayout="column" fxLayoutAlign="space-evenly center" >
+                            <h4>Daily Change Rate</h4>
+                            <div fxLayout="row" fxLayoutAlign="start center">
+                                <p>{{currentCaseData.dayChange}}</p>
+                                <mat-icon *ngIf="currentCaseData.dayChange > 0" style="margin-bottom: 12px; color:red;" aria-label="Example home icon">arrow_upward</mat-icon>   
+                                <mat-icon *ngIf="currentCaseData.dayChange <= 0" style="margin-bottom: 12px; color:green;" aria-label="Example home icon">arrow_downward</mat-icon>   
+                            </div>
+                        </div>
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="space-evenly center" >
+                        <div fxLayout="column" fxLayoutAlign="space-evenly center" >
+                            <h4>Yesterday's Cases</h4>
+                            <p>{{currentCaseData.minusOneDay.confirmed}}</p>
+                        </div>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div>
+        <mat-card class="example-card flex-item">
+            <mat-card-header>
+                <mat-card-title>Weekly Score Card</mat-card-title>
+                <mat-card-subtitle>{{currentSelectedLocation.county}} County, {{currentSelectedLocation.state}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <div fxLayout="column">
+                    <div fxLayout="row" fxLayoutAlign="space-evenly center" >
+                        <div fxLayout="column" fxLayoutAlign="space-evenly center" >
+                            <h4>{{currentCaseData.minusOneWeek.last_update | date:'shortDate'}} Cases</h4>
+                            <p>{{currentCaseData.minusOneWeek.confirmed}}</p>
+                        </div>
+                        <div fxLayout="column" fxLayoutAlign="space-evenly center" >
+                            <h4>Weekly Change Rate</h4>
+                            <div fxLayout="row" fxLayoutAlign="start center">
+                                <p>{{currentCaseData.weekChange}}</p>
+                                <mat-icon *ngIf="currentCaseData.weekChange > 0" style="margin-bottom: 12px; color:red;" aria-label="Example home icon">arrow_upward</mat-icon>   
+                                <mat-icon *ngIf="currentCaseData.weekChange <= 0" style="margin-bottom: 12px; color:green;" aria-label="Example home icon">arrow_downward</mat-icon>   
+                            </div>
+                        </div>
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="space-evenly center" >
+                        <div fxLayout="column" fxLayoutAlign="space-evenly center" >
+                            <h4>{{currentCaseData.minusTwoDay.last_update | date:'shortDate'}} Cases</h4>
+                            <p>{{currentCaseData.minusTwoDay.confirmed}}</p>
+                        </div>
+                        <div fxLayout="column" fxLayoutAlign="space-evenly center" >
+                            <h4>{{currentCaseData.minusThreeDay.last_update | date:'shortDate'}} Cases</h4>
+                            <p>{{currentCaseData.minusThreeDay.confirmed}}</p>
+                        </div>
+                        <div fxLayout="column" fxLayoutAlign="space-evenly center" >
+                            <h4>{{currentCaseData.minusFourDay.last_update | date:'shortDate'}} Cases</h4>
+                            <p>{{currentCaseData.minusFourDay.confirmed}}</p>
+                        </div>
+                        <div fxLayout="column" fxLayoutAlign="space-evenly center" >
+                            <h4>{{currentCaseData.minusFiveDay.last_update | date:'shortDate'}} Cases</h4>
+                            <p>{{currentCaseData.minusFiveDay.confirmed}}</p>
+                        </div>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div>
+        <mat-card class="example-card flex-item">
+            <mat-card-header>
+                <mat-card-title>Monthly Score Card</mat-card-title>
+                <mat-card-subtitle>{{currentSelectedLocation.county}} County, {{currentSelectedLocation.state}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <div fxLayout="column">
+                    <div fxLayout="row" fxLayoutAlign="space-evenly center" >
+                        <div fxLayout="column" fxLayoutAlign="space-evenly center" >
+                            <h4>{{currentCaseData.minusMonth.last_update | date:'shortDate'}} Cases</h4>
+                            <p>{{currentCaseData.minusMonth.confirmed}}</p>
+                        </div>
+                        <div fxLayout="column" fxLayoutAlign="space-evenly center" >
+                            <h4>Monthly Change Rate</h4>
+                            <div fxLayout="row" fxLayoutAlign="start center">
+                                <p>{{currentCaseData.monthChange}}</p>
+                                <mat-icon *ngIf="currentCaseData.dayChange > 0" style="margin-bottom: 12px; color:red;" aria-label="Example home icon">arrow_upward</mat-icon>   
+                                <mat-icon *ngIf="currentCaseData.dayChange <= 0" style="margin-bottom: 12px; color:green;" aria-label="Example home icon">arrow_downward</mat-icon>   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

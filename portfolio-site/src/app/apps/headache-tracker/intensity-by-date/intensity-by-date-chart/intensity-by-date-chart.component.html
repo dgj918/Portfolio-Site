@@ -1,7 +1,9 @@
 <div class="flex-item">
     <div style="display: block;" class="chartContainer">
+        <h2 fxLayoutAlign="center center">Headache Intensity By Day</h2>
         <canvas 
-            baseChart width="400" height="500"
+            class="chartContainer"
+            baseChart
             [datasets]="lineChartData"
             [labels]="lineChartLabels"
             [options]="lineChartOptions"

@@ -5,6 +5,9 @@ import { HeadacheTrackerComponent } from './apps/headache-tracker/headache-track
 import { IntensityByDateComponent } from './apps/headache-tracker/intensity-by-date/intensity-by-date.component';
 import { CoronaVirusTrackerComponent } from './apps/corona-virus-tracker/corona-virus-tracker.component';
 import { Covid19ChartComponent } from './apps/corona-virus-tracker/covid19-chart/covid19-chart.component';
+import { JhuCasesTableComponent } from './apps/corona-virus-tracker/cases-jhu/jhu-cases-table/jhu-cases-table.component';
+import { JhuCasesChartComponent } from './apps/corona-virus-tracker/cases-jhu/jhu-cases-chart/jhu-cases-chart.component';
+import { Covid19TableComponent } from './apps/corona-virus-tracker/covid19-table/covid19-table.component';
 
 
 const routes: Routes = [
@@ -12,7 +15,14 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'headache', component: HeadacheTrackerComponent},
   { path: 'intensity', component: IntensityByDateComponent},
-  { path: 'COVID19', component: CoronaVirusTrackerComponent},
+  { path: 'COVID19', component: CoronaVirusTrackerComponent,
+    children: [
+      {path: 'cases-jhu-table', component: JhuCasesTableComponent},
+      {path: 'cases-jhu-chart', component: JhuCasesChartComponent},
+      {path: 'worldwide-chart', component: Covid19ChartComponent},
+      {path: 'worldwide-table', component: Covid19TableComponent}
+    ]
+  },
   { path: 'COVID19-chart', component: Covid19ChartComponent},
 
 ];

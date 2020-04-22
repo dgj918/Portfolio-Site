@@ -29,7 +29,13 @@ import { Covid19BottomNavComponent } from './apps/corona-virus-tracker/covid19-b
 import { Covid19TableComponent } from './apps/corona-virus-tracker/covid19-table/covid19-table.component';
 import { MatSortModule } from '@angular/material/sort';
 import { Covid19ChartComponent } from './apps/corona-virus-tracker/covid19-chart/covid19-chart.component';
-
+import { JhuCasesTableComponent } from './apps/corona-virus-tracker/cases-jhu/jhu-cases-table/jhu-cases-table.component';
+import { JhuCasesChartComponent } from './apps/corona-virus-tracker/cases-jhu/jhu-cases-chart/jhu-cases-chart.component';
+import {MatCardModule} from '@angular/material/card';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { LocationSelectComponent } from './apps/corona-virus-tracker/cases-jhu/location-select/location-select.component';
+import { MatSelectModule } from '@angular/material/select';
+import {MatTabsModule} from '@angular/material/tabs';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +49,10 @@ import { Covid19ChartComponent } from './apps/corona-virus-tracker/covid19-chart
     CoronaVirusTrackerComponent,
     Covid19BottomNavComponent,
     Covid19TableComponent,
-    Covid19ChartComponent 
+    Covid19ChartComponent,
+    JhuCasesTableComponent,
+    JhuCasesChartComponent,
+    LocationSelectComponent 
   ],
   imports: [
     BrowserModule,
@@ -64,7 +73,11 @@ import { Covid19ChartComponent } from './apps/corona-virus-tracker/covid19-chart
     MatNativeDateModule,
     HttpClientModule,
     ChartsModule,
-    MatSortModule
+    MatSortModule,
+    MatCardModule,
+    FlexLayoutModule,
+    MatSelectModule,
+    MatTabsModule
   ],
   entryComponents: [
     DialogOverviewExampleDialog

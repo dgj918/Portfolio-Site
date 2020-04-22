@@ -3,6 +3,7 @@ import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, BaseChartDirective, Label } from 'ng2-charts';
 import { HeadachesService } from '../../services/headaches.service';
 import { map } from 'rxjs/operators';
+import * as moment from 'moment'
 
 @Component({
   selector: 'app-intensity-by-date-chart',
@@ -13,7 +14,7 @@ export class IntensityByDateChartComponent implements OnInit {
   public lineChartData: ChartDataSets[] = [{data: [0], label: 'Intensity'}];
   public lineChartLabels: Label[] = [''];
   public lineChartOptions: (ChartOptions & { annotation: any }) = {
-    responsive: false,
+    responsive: true,
     scales: {
       // We use this empty structure as a placeholder for dynamic theming.
       xAxes: [{}],
@@ -57,7 +58,7 @@ export class IntensityByDateChartComponent implements OnInit {
       map(val => {
         let valArr: any = val
         return valArr.map(element =>{
-          dateArr.push(element['date_and_time'])
+          dateArr.push(moment(element['date_and_time']).format('M-D-YY'))
           intArr.push(element['intensity'])
           return dateArr
         }) 

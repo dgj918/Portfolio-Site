@@ -1,3 +1,10 @@
-<p>corona-virus-tracker works!</p>
-<app-covid19-table></app-covid19-table>
-<app-covid19-bottom-nav></app-covid19-bottom-nav>
+<nav mat-tab-nav-bar>
+    <a mat-tab-link
+        *ngFor="let link of navLinks"
+        [routerLink]="link.path"
+        routerLinkActive #rla="routerLinkActive"
+        [active]="rla.isActive">
+        {{link.label}}
+    </a>
+</nav>
+<router-outlet></router-outlet>
