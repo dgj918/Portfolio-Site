@@ -97,6 +97,14 @@ export class JhuCasesChartComponent implements OnInit {
       }
     }
   };
+  public barChartColors: Color[] = [{
+    backgroundColor: 'rgba(18, 30, 246,0.2)',
+    borderColor: 'rgba(77,83,96,1)',
+    pointBackgroundColor: 'rgba(77,83,96,1)',
+    pointBorderColor: '#fff',
+    pointHoverBackgroundColor: '#fff',
+    pointHoverBorderColor: 'rgba(77,83,96,1)'
+  }]
   public barChartLabels: Label[] = [];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;

@@ -37,13 +37,14 @@
         </div>
     </mat-tab>
     <mat-tab label="Daily Case Change">
-        <h3 fxLayoutAlign="center center">Daily Changes in Cases: {{currentSelectedLocation.county}} County, {{currentSelectedLocation.state}}</h3>
+        <h3 fxLayoutAlign="center center">Daily Case Change: {{currentSelectedLocation.county}} County, {{currentSelectedLocation.state}}</h3>
         <div>
             <div style="display: block">
             <canvas baseChart
                 [datasets]="barChartData"
                 [labels]="barChartLabels"
                 [options]="barChartOptions"
+                [colors]="barChartColors"
                 [legend]="barChartLegend"
                 [chartType]="barChartType">
             </canvas>
