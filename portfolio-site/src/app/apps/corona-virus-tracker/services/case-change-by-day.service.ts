@@ -10,10 +10,18 @@ export class CaseChangeByDayService {
   constructor(private http: HttpClient) { }
 
   getDayCaseChange(country: string, state: string, county: string){
-    let params = new HttpParams()
-    .set('country', country)
-    .set('state', state)
-    .set('county', county)
+    let params: any = {}
+
+    if (county == null){
+      params = new HttpParams()
+      .set('country', country)
+      .set('state', state)
+    } else {
+      params = new HttpParams()
+      .set('country', country)
+      .set('state', state)
+      .set('county', county)
+    }
 
     let headers = new HttpHeaders()
     .set('Content-Type', 'application/json; charset=utf-8')

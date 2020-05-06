@@ -83,6 +83,8 @@ export class JhuCasesTableComponent implements OnInit {
   checkForStateChanges(){
     this.locationSelectForm.get('state').valueChanges.subscribe(state =>{
       this.currentSelectedLocation.state = state
+      this.currentSelectedLocation.county = null
+      this.getCases()
       this.getCounties()  
     })
   }

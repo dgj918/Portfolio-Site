@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ByDayStatsService } from './services/by-day-stats.service';
+import { NavBarTitleService } from 'src/app/services/nav-bar-title.service';
 
 export interface link {
   label: string
@@ -15,7 +16,8 @@ export class CoronaVirusTrackerComponent implements OnInit {
   navLinks: link[]
 
 
-  constructor(private byDayStat: ByDayStatsService) {
+  constructor(private byDayStat: ByDayStatsService,
+    private navBarTitleServ: NavBarTitleService) {
     this.navLinks = [
       {label: 'JHU Cases', path: 'cases-jhu-table'},
       {label: 'JHU Chart', path: 'cases-jhu-chart'},
@@ -25,6 +27,7 @@ export class CoronaVirusTrackerComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.navBarTitleServ.changeTitle('COVID-19 Tracker')
     this.getDayStats()
   }
 

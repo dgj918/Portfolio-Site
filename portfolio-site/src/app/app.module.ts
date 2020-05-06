@@ -36,6 +36,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { LocationSelectComponent } from './apps/corona-virus-tracker/cases-jhu/location-select/location-select.component';
 import { MatSelectModule } from '@angular/material/select';
 import {MatTabsModule} from '@angular/material/tabs';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,7 +79,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatCardModule,
     FlexLayoutModule,
     MatSelectModule,
-    MatTabsModule
+    MatTabsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   entryComponents: [
     DialogOverviewExampleDialog

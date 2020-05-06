@@ -162,6 +162,9 @@ export class JhuCasesChartComponent implements OnInit {
   checkForStateChanges(){
     this.locationSelectFormJHUChart.get('state').valueChanges.subscribe(state =>{
       this.currentSelectedLocation.state = state
+      this.currentSelectedLocation.county = null
+      this.getCases()
+      this.getDayCaseChange()
       this.getCounties()  
     })
   }

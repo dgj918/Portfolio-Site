@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HeadachesService } from './services/headaches.service';
 import { DataSource } from '@angular/cdk/table';
 import { map } from 'rxjs/operators';
+import { NavBarTitleService } from 'src/app/services/nav-bar-title.service';
 
 export interface HeadacheType {
   intensity: number;
@@ -19,7 +20,8 @@ export class HeadacheTrackerComponent implements OnInit {
   displayedColumns: string[] = ['date_and_time', 'intensity', 'headache_trigger', 'medicine'];
   dataSource: DataSource<HeadacheType>;
   
-  constructor(private headacheSev: HeadachesService) { }
+  constructor(private headacheSev: HeadachesService,
+    private navBarTitleServ: NavBarTitleService) { }
 
   ngOnInit() {
     this.headacheSev.getHeadaches()
@@ -40,6 +42,8 @@ export class HeadacheTrackerComponent implements OnInit {
       let headacheData: any = data
       this.dataSource = headacheData
     })
+
+    this.navBarTitleServ.changeTitle('Headache Tracker')
   }
 
   updateTableData($event){
