@@ -1,5 +1,24 @@
-<button color="primary" mat-button [matMenuTriggerFor]="menu">Apps</button>
-<mat-menu #menu="matMenu">
-  <button mat-menu-item><a routerLink="headache" style="text-decoration: none; color: black;">Headache Tracker</a></button>
-  <button mat-menu-item><a routerLink="COVID19" style="text-decoration: none; color: black;">COVID19 Tracker</a></button>
-</mat-menu>
+<div class="home">
+  <div fxLayout="column flex" fxLayoutAlign="space-around center">
+    <mat-toolbar class="navbar">
+      <span class="spacer"></span>
+        <button class="navbarbut appMenuBut" mat-button routerLink="/apps">Applications</button>
+        <button class="navbarbut appMenuBut" mat-button routerLink="/resume">Resume</button>
+        <button class="navbarbut appMenuBut" mat-button routerLink="/blog">Blog</button>
+      <span class="spacer"></span>
+    </mat-toolbar>
+
+    <div class="aboutMe">
+      <div class="navbarbut curTitle">
+        <h2>{{currentTitle}}</h2>
+      </div>
+      <div>
+        <p>
+          Experienced full stack developer and IT project leader with a demonstrated history in the manufacturing and appliance industry. 
+          Proven track record of delivering timely and innovative applications on a Agile team that specialized in AWS severless architecture, 
+          full stack web app development, and ICS/SCADA systems.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

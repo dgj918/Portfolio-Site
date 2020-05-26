@@ -1,0 +1,54 @@
+{
+    "articles": [
+        {
+            "title": "Setting up a Cowrie Honeypot with a SQL Database",
+            "picture": "../../assets/pictures/honeynet.png",
+            "date": "17 Feb 2018"
+        },
+        {
+            "title": "SQL Injection",
+            "picture": "../../assets/pictures/mulSQLresults.png",
+            "date": "15 Jan 2018"
+        },
+        {
+            "title": "Styling with Multildae",
+            "picture": "../../assets/pictures/mul1.png",
+            "date": "13 Jan 2018"
+        },
+        {
+            "title": "Why gets() is bad",
+            "picture": "../../assets/pictures/getsshell.PNG",
+            "date": "12 Jan 2018"
+        },
+        {
+            "title": "Using system() to elevate priveledges",
+            "picture": "../../assets/pictures/challenge2.PNG",
+            "date": "10 Jan 2018"
+        },
+        {
+            "title": "Why gets() is really really bad",
+            "picture": "../../assets/pictures/gets.PNG",
+            "date": "09 Jan 2018"
+        },
+        {
+            "title": "memecpy() is Dangerous",
+            "picture": "../../assets/pictures/challenge4.PNG",
+            "date": "05 Jan 2018"
+        },
+        {
+            "title": "Symmetric Encryption Using Different Ciphers and Modes",
+            "picture": "../../assets/pictures/encryptFileCBC.png",
+            "date": "04 Jan 2018"
+        },
+        {
+            "title": "Encryption Mode – ECB vs. CBC",
+            "picture": "../../assets/pictures/ecbHex.png",
+            "date": "15 Dec 2017"
+        },
+        {
+            "title": "Encryption Mode – Corrupted Cipher Text",
+            "picture": "../../assets/pictures/corruptOutput.png",
+            "date": "10 Dec 2017"
+        }
+    ]
+}

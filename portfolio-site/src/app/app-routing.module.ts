@@ -8,11 +8,17 @@ import { Covid19ChartComponent } from './apps/corona-virus-tracker/covid19-chart
 import { JhuCasesTableComponent } from './apps/corona-virus-tracker/cases-jhu/jhu-cases-table/jhu-cases-table.component';
 import { JhuCasesChartComponent } from './apps/corona-virus-tracker/cases-jhu/jhu-cases-chart/jhu-cases-chart.component';
 import { Covid19TableComponent } from './apps/corona-virus-tracker/covid19-table/covid19-table.component';
+import { ResumeComponent } from './resume/resume.component';
+import { AppsMenuComponent } from './apps-menu/apps-menu.component';
+import { BlogComponent } from './blog/blog.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'home', component: HomeComponent},
+  { path: 'apps', component: AppsMenuComponent},
+  { path: 'blog', component: BlogComponent},
+  { path: 'resume', component: ResumeComponent},
   { path: 'headache', component: HeadacheTrackerComponent},
   { path: 'intensity', component: IntensityByDateComponent},
   { path: 'COVID19', component: CoronaVirusTrackerComponent,

@@ -38,6 +38,9 @@ import { MatSelectModule } from '@angular/material/select';
 import {MatTabsModule} from '@angular/material/tabs';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { ResumeComponent } from './resume/resume.component';
+import { BlogComponent } from './blog/blog.component';
+import { AppsMenuComponent } from './apps-menu/apps-menu.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +57,10 @@ import { environment } from '../environments/environment';
     Covid19ChartComponent,
     JhuCasesTableComponent,
     JhuCasesChartComponent,
-    LocationSelectComponent 
+    LocationSelectComponent,
+    ResumeComponent,
+    BlogComponent,
+    AppsMenuComponent 
   ],
   imports: [
     BrowserModule,

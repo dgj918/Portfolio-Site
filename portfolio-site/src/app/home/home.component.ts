@@ -8,19 +8,25 @@ import { NavBarTitleService } from '../services/nav-bar-title.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  currentTitle: string
 
   constructor(
     private router: Router,
-    private navBarTitleServ: NavBarTitleService
-  ) { }
+  ) { 
+    this.currentTitle = "Garrett Johnson"
+  }
 
   ngOnInit() {
-    this.navBarTitleServ.changeTitle('Home')
+
   }
 
   navToHeadache(){
     console.log("clicked")
     this.router.navigate[('/headache')]
+  }
+
+  navToHome(){
+    this.router.navigate(['/'])
   }
 
 }
