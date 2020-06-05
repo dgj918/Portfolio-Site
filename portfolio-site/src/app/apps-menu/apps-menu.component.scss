@@ -3,11 +3,21 @@
         max-height: 300px;
         max-width: 250px;
     }
+
+    .flyfishimg{
+        max-height: 300px;
+        max-width: 200px;
+    }
 }
 @media (min-width:480px)  { /* smartphones, Android phones, landscape iPhone */ 
     .app-card{
         max-height: 300px;
         max-width: 250px;
+    }
+
+    .flyfishimg{
+        max-height: 300px;
+        max-width: 200px;
     }
 }
 @media (min-width:600px)  { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */ 
@@ -15,11 +25,21 @@
         max-height: 300px;
         max-width: 250px;
     }
+
+    .flyfishimg{
+        max-height: 300px;
+        max-width: 200px;
+    }
 }
 @media (min-width:801px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ 
     .app-card{
         min-height: 350px;
         min-width: 300px;
+    }
+
+    .flyfishimg{
+        max-height: 300px;
+        width: 300px;
     }
 }
 @media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ 
@@ -27,11 +47,21 @@
         min-height: 350px;
         min-width: 300px;
     }
+
+    .flyfishimg{
+        max-height: 300px;
+        max-width: 300px;
+    }
 }
 @media (min-width:1281px) { /* hi-res laptops and desktops */ 
     .app-card{
         min-height: 350px;
         min-width: 300px;
+    }
+
+    .flyfishimg{
+        max-height: 300px;
+        max-width: 300px;
     }
 }
 
@@ -42,3 +72,8 @@
 .app-card:hover{
     cursor: pointer;
 }
+
+a {
+    text-decoration: none;
+}
+
