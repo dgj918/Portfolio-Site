@@ -41,6 +41,7 @@ import { environment } from '../environments/environment';
 import { ResumeComponent } from './resume/resume.component';
 import { BlogComponent } from './blog/blog.component';
 import { AppsMenuComponent } from './apps-menu/apps-menu.component';
+import { CyberMainComponent } from './apps/cyber-ttp-analysis/cyber-main/cyber-main.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +61,8 @@ import { AppsMenuComponent } from './apps-menu/apps-menu.component';
     LocationSelectComponent,
     ResumeComponent,
     BlogComponent,
-    AppsMenuComponent 
+    AppsMenuComponent,
+    CyberMainComponent 
   ],
   imports: [
     BrowserModule,

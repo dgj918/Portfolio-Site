@@ -11,6 +11,7 @@ import { Covid19TableComponent } from './apps/corona-virus-tracker/covid19-table
 import { ResumeComponent } from './resume/resume.component';
 import { AppsMenuComponent } from './apps-menu/apps-menu.component';
 import { BlogComponent } from './blog/blog.component';
+import { CyberMainComponent } from './apps/cyber-ttp-analysis/cyber-main/cyber-main.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
     ]
   },
   { path: 'COVID19-chart', component: Covid19ChartComponent},
+  { path: 'cyber-main', component: CyberMainComponent}
 
 ];
 
